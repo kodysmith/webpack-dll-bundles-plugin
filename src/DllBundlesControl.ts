@@ -94,7 +94,8 @@ export class DllBundlesControl {
             return state;
           }, {} as any);
 
-        fs.writeFileSync(Path.join(this.options.dllDir, BUNDLE_STATE_FILENAME), JSON.stringify(bundleState, null, 2));
+        // this will create the file if it does not exist
+        fs.writeFileSync(Path.join(this.options.dllDir, BUNDLE_STATE_FILENAME), JSON.stringify(bundleState, null, 2), 'w'); 
       });
   }
 
